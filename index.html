@@ -1,499 +1,157 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>بيّنة | للمحاماة والاستشارات القانونية</title>
-  <meta name="description" content="بيّنة للمحاماة — كيان قانوني يقدم استشارات وتمثيل في القضايا. Bayyinah Law Firm.">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيّنة للمحاماة والاستشارات القانونية | المحامي سعيد البدر</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0B2A4A; /* كحلي ملكي */
+            --gold-color: #C5A059;    /* ذهبي مطفي */
+            --text-color: #333;
+            --bg-light: #F9F9F9;
+        }
 
-  <style>
-    /* المتغيرات الأساسية */
-    :root{
-      --primary: #0B2A4A;   
-      --accent: #D4A017;    
-      --bg: #F6F8FA;        
-      --card: #FFFFFF;      
-      --muted: #6B7280;     
-      --border: #e9eef6;    
-      --input-bg: #FFFFFF;  
-      --hover-bg: #eef6ff;
-      --radius: 12px;
-      --container: 1100px;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
 
-    /* الوضع الليلي */
-    html.dark {
-      --primary: #E2E8F0;   
-      --accent: #D4A017;    
-      --bg: #0F172A;        
-      --card: #1E293B;      
-      --muted: #94A3B8;     
-      --border: #334155;    
-      --input-bg: #0F172A;  
-      --hover-bg: #334155;
-    }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 50px; /* مساحة للتذييل */
+        }
 
-    *{box-sizing:border-box; margin:0; padding:0;}
-    html{scroll-behavior: smooth;}
-    
-    body {
-      background:var(--bg); color:var(--primary); -webkit-font-smoothing:antialiased;
-      line-height:1.65; display:flex; flex-direction: column; align-items:center;
-      transition: background 0.4s, color 0.4s;
-    }
-    
-    html[lang="ar"] body { font-family:"Cairo", sans-serif; }
-    html[lang="en"] body { font-family:"Outfit", sans-serif; }
-    
-    .en { display: none; }
-    html[lang="en"] .ar { display: none; }
-    html[lang="en"] .en { display: inline-block; }
-    html[lang="en"] p.en, html[lang="en"] div.en, html[lang="en"] h1.en, html[lang="en"] h2.en, html[lang="en"] h3.en, html[lang="en"] h4.en, html[lang="en"] ul.en, html[lang="en"] li.en, html[lang="en"] strong.en, html[lang="en"] span.en { display: block; }
+        /* الهيدر */
+        header {
+            background-color: var(--primary-color);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--gold-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-    /* شريط الإنذار القانوني */
-    .legal-alert {
-        width: 100%; background: var(--primary); color: #fff; padding: 10px 20px; font-size: 13px; font-weight: 700; text-align: center; display: flex; justify-content: center; gap: 10px; align-items: center; z-index: 100; border-bottom: 2px solid var(--accent);
-    }
-    .legal-alert span.badge { background: var(--accent); color: #000; padding: 2px 8px; border-radius: 4px; font-size: 11px; animation: pulse 2s infinite; }
-    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
+        .logo-text {
+            color: #fff;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-    .wrap{width:100%;max-width:var(--container); padding: 28px;}
-    
-    /* Header */
-    header{ display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px; flex-wrap: wrap;}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo-img{
-      width:64px;height:64px;border-radius:14px;background:var(--card); border:1px solid var(--border); display:flex;align-items:center;justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,0.05); transition: background 0.4s, border 0.4s;
-    }
-    .logo-img-placeholder { width: 100%; height: 100%; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; color: var(--accent); }
-    .brand h1{margin:0;font-size:18px}
-    .brand p{margin:0;color:var(--muted);font-size:13px}
+        .sub-logo {
+            color: var(--gold-color);
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
 
-    nav{display:flex;gap:10px;align-items:center; flex-wrap: wrap;}
-    nav a{color:var(--primary);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600; font-size:15px; transition: background 0.3s;}
-    nav a:hover{background: var(--hover-bg);}
-    nav a.cta{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(212,160,23,0.12)}
-    nav a.cta:hover{background:#b88a13; transform: translateY(-2px); color:#fff;}
-    
-    .ctrl-btn { background: var(--card); color: var(--primary); border: 1px solid var(--border); padding: 8px 16px; border-radius: 999px; cursor: pointer; font-weight: 700; font-size: 14px; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
-    .ctrl-btn:hover { background: var(--hover-bg); }
-    .icon-btn { padding: 8px 12px; font-size: 16px; }
+        /* القسم الرئيسي */
+        .hero {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
 
-    /* الخلفية التفاعلية */
-    .hero-wrap {
-        background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0B2A4A);
-        background-size: 400% 400%; animation: gradientBG 15s ease infinite;
-        border-radius: 24px; padding: 40px; margin-bottom: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-        display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start;
-    }
-    @keyframes gradientBG { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
-    
-    .hero-content { color: #fff; }
-    .hero-content h2 { margin:0 0 16px 0; font-size:36px; line-height:1.4; color: #fff; }
-    .hero-content p { color: #e2e8f0; font-size: 16px; margin-bottom: 24px; }
-    .kicker{display:inline-block;background:rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color:#fff; padding:6px 14px;border-radius:999px;font-weight:700;margin-bottom:16px;font-size:13px; backdrop-filter: blur(5px);}
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+        }
 
-    /* Contact panel (Inside Hero) */
-    .panel{ background:var(--card);padding:28px;border-radius:16px; border:1px solid var(--border); box-shadow:0 12px 40px rgba(0,0,0,0.15);}
-    .panel h3{margin:0 0 8px 0; color: var(--primary);}
-    .field{width:100%;padding:14px;border-radius:10px;border:1px solid var(--border);margin-bottom:12px;font-size:14px; font-family:inherit; background:var(--input-bg); color:var(--primary); transition:all 0.3s;}
-    .field:focus{outline:none; border-color:var(--accent);}
-    .btn{ display:inline-block;background:var(--accent);color:#000;padding:14px 16px;border-radius:10px;text-decoration:none;font-weight:700; border:none; cursor:pointer; font-size:15px; text-align:center; transition:all 0.3s; }
-    .btn:hover {opacity: 0.9; transform: translateY(-2px);}
-    .btn.ghost{background:transparent;color:var(--primary);border:1px solid var(--border);}
-    .btn.ghost:hover{background:var(--hover-bg);}
-    html.dark .btn.ghost { color: #fff; }
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
 
-    /* Sections Shared */
-    .section-title { margin-bottom: 24px; font-size: 26px; display:flex; align-items:center; gap:12px; margin-top: 50px;}
-    .section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+        /* مميزات المكتب */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
 
-    /* Methodology Timeline */
-    .timeline-container { background: var(--card); padding: 32px; border-radius: var(--radius); border: 1px solid var(--border); }
-    .timeline { position: relative; padding-inline-start: 20px; border-inline-start: 2px solid var(--border); }
-    .timeline-item { position: relative; padding-bottom: 24px; padding-inline-start: 24px; }
-    .timeline-item:last-child { padding-bottom: 0; }
-    .timeline-item::before {
-        content: ''; position: absolute; inset-inline-start: -27px; top: 4px; width: 14px; height: 14px;
-        border-radius: 50%; background: var(--accent); border: 4px solid var(--card); box-shadow: 0 0 0 2px var(--border);
-    }
-    .timeline-item h4 { color: var(--primary); font-size: 18px; margin-bottom: 6px; }
-    .timeline-item p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+        .feature-card {
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
 
-    /* Case Studies */
-    .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-    .case-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: transform 0.3s; }
-    .case-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
-    .case-tag { font-size: 12px; font-weight: bold; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; display: inline-block; background: var(--hover-bg); padding: 4px 10px; border-radius: 6px; }
-    .case-title { font-size: 18px; color: var(--primary); margin-bottom: 16px; border-bottom: 1px dashed var(--border); padding-bottom: 12px; }
-    .case-section { margin-bottom: 12px; }
-    .case-section strong { color: var(--primary); font-size: 14px; display: block; margin-bottom: 4px; }
-    .case-section p { color: var(--muted); font-size: 14px; line-height: 1.6; }
-    .case-result { background: var(--hover-bg); padding: 12px; border-radius: 8px; border-inline-start: 3px solid var(--accent); margin-top: 16px; }
-    .case-result p { color: var(--primary); font-weight: 600; margin: 0; }
+        .feature-card:hover {
+            border-color: var(--gold-color);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
 
-    /* Location & Hours */
-    .loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px;}
-    .loc-details { padding: 24px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); }
-    .loc-details ul { list-style: none; padding: 0; margin-top: 14px; margin-bottom: 20px;}
-    .loc-details li { margin-bottom: 12px; color: var(--muted); display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border); padding-bottom: 8px; font-size: 14px;}
-    .map-container { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); min-height: 280px; background: var(--card); display: flex;}
-    .map-container iframe { flex: 1; filter: grayscale(20%) contrast(1.1); }
-    html.dark .map-container iframe { filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(1.2); }
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
 
-    /* Footer */
-    footer{margin-top:40px;padding:32px;border-radius:var(--radius);background:var(--card);border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center; flex-wrap: wrap; gap: 20px; width: 100%; max-width: var(--container);}
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            margin-top: 60px;
+        }
 
-    /* =========================================
-       AI CHATBOT WIDGET STYLES
-       ========================================= */
-    .chatbot-widget {
-        position: fixed; bottom: 24px; inset-inline-end: 24px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end;
-    }
-    .chat-btn {
-        width: 60px; height: 60px; border-radius: 50%; background: var(--primary); color: #fff; border: 2px solid var(--accent);
-        display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: transform 0.3s;
-    }
-    .chat-btn:hover { transform: scale(1.05); }
-    
-    .chat-window {
-        width: 350px; height: 450px; background: var(--card); border-radius: 16px; border: 1px solid var(--border);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.15); display: flex; flex-direction: column; overflow: hidden;
-        margin-bottom: 16px; transform: scale(0); transform-origin: bottom right; transition: transform 0.3s ease;
-        opacity: 0; pointer-events: none;
-    }
-    html[dir="ltr"] .chat-window { transform-origin: bottom left; }
-    .chat-window.active { transform: scale(1); opacity: 1; pointer-events: all; }
-    
-    .chat-header {
-        background: var(--primary); color: #fff; padding: 16px; display: flex; justify-content: space-between; align-items: center;
-        border-bottom: 3px solid var(--accent);
-    }
-    .chat-header h4 { margin: 0; font-size: 15px; display: flex; align-items: center; gap: 8px; }
-    .close-chat { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
-    
-    .chat-body {
-        flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: var(--bg);
-    }
-    .chat-msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.5; }
-    .msg-bot { background: var(--card); color: var(--primary); border: 1px solid var(--border); align-self: flex-start; border-start-start-radius: 2px; }
-    .msg-user { background: var(--accent); color: #000; align-self: flex-end; border-end-end-radius: 2px; font-weight: 600;}
-    
-    .chat-input-area {
-        padding: 12px; background: var(--card); border-top: 1px solid var(--border); display: flex; gap: 8px;
-    }
-    .chat-input {
-        flex: 1; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); font-family: inherit; font-size: 13px;
-        background: var(--input-bg); color: var(--primary); outline: none; transition: border 0.3s;
-    }
-    .chat-input:focus { border-color: var(--accent); }
-    .chat-send {
-        background: var(--primary); color: #fff; border: none; padding: 0 16px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: opacity 0.3s;
-    }
-    .chat-send:hover { opacity: 0.9; }
-
-    @media (max-width:980px){ .hero-wrap, .loc-grid {grid-template-columns:1fr} }
-    @media (max-width:640px){ .wrap{padding:16px} .brand h1{font-size:16px} .hero-content h2{font-size: 26px;} nav{justify-content:center; width:100%} .legal-alert {flex-direction: column;} .chat-window {width: calc(100vw - 48px); height: 400px;} }
-  </style>
+        /* ملاحظة: تم حذف ستايلات الزر الوهمي القديم (floating-chat) لعدم الحاجة إليها */
+    </style>
 </head>
 <body>
 
-  <div class="legal-alert">
-    <span class="badge ar">جديد</span><span class="badge en">NEW</span>
-    <span class="ar">تنبيه قانوني: تأكد من توافق عقود شركتك التجارية مع التحديثات الأخيرة لنظام المعاملات المدنية.</span>
-    <span class="en">Legal Alert: Ensure your commercial contracts comply with the recent updates to the Civil Transactions Law.</span>
-  </div>
-
-  <div class="wrap">
-    
     <header>
-      <div class="brand">
-        <div class="logo-img"><div class="logo-img-placeholder"><span class="ar">ب</span><span class="en">B</span></div></div>
-        <div>
-          <h1 class="ar">بيّنة للمحاماة</h1><h1 class="en">Bayyinah Law Firm</h1>
-          <p class="muted ar">الرؤية الواضحة.. والخطوات الواثقة</p><p class="muted en">Clear Vision.. Confident Steps</p>
-        </div>
-      </div>
-      <nav>
-        <div style="display:flex; gap:8px;">
-            <button id="themeToggle" class="ctrl-btn icon-btn" onclick="toggleTheme()" title="تغيير المظهر">🌙</button>
-            <button id="langToggle" class="ctrl-btn" onclick="toggleLanguage()">English</button>
-        </div>
-        <a href="#approach"><span class="ar">منهجيتنا</span><span class="en">Approach</span></a>
-        <a href="#cases"><span class="ar">دراسات حالة</span><span class="en">Cases</span></a>
-        <a class="cta" href="javascript:void(0)" onclick="toggleChat()"><span class="ar">المساعد الذكي 🤖</span><span class="en">AI Assistant 🤖</span></a>
-      </nav>
+        <div class="logo-text">بيّنة</div>
+        <div class="sub-logo">للمحاماة والاستشارات القانونية</div>
     </header>
-    
-    <main>
-      <section class="hero-wrap">
-        <div class="hero-content">
-          <span class="kicker ar">كيان قانوني رائد</span>
-          <span class="kicker en">Leading Legal Entity</span>
-          
-          <h2 class="ar">نصنع الفارق في مسار قضاياك بقوة النظام ودقة الإجراء وصرامة التنفيذ.</h2>
-          <h2 class="en">Making a difference in your cases with systemic power, procedural precision, and strict execution.</h2>
-          
-          <p class="ar">نقدم استشارات وتمثيلاً للكيانات التجارية والأفراد في القضايا المعقدة. نهجنا يرتكز على الفهم العميق للأنظمة واستباق المخاطر قبل وقوعها.</p>
-          <p class="en">Providing representation for commercial entities and individuals in complex cases, focused on deep understanding of laws and risk anticipation.</p>
-        </div>
 
-        <aside class="panel" id="contact">
-          <h3 class="ar">اطلب دراسة مبدئية</h3><h3 class="en">Request Initial Review</h3>
-          <p class="muted ar" style="margin-bottom:12px">املأ النموذج وسنتواصل معك فوراً.</p>
-          <p class="muted en" style="margin-bottom:12px">Fill out the form and we will contact you.</p>
-
-          <form action="https://formsubmit.co/sasopw@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="طلب استشارة | Consultation Request">
-            <input type="hidden" name="_captcha" value="false">
-            <input class="field ar" type="text" name="Name" placeholder="الاسم الكامل" required>
-            <input class="field en" type="text" name="Name" placeholder="Full Name">
-            <input class="field ar" type="text" name="Contact" placeholder="رقم الجوال أو البريد" required>
-            <input class="field en" type="text" name="Contact" placeholder="Phone or Email">
-            <textarea class="field ar" name="Details" rows="3" placeholder="وصف القضية باختصار..." required></textarea>
-            <textarea class="field en" name="Details" rows="3" placeholder="Brief case description..."></textarea>
-            
-            <div style="display:flex;gap:10px;">
-              <button type="submit" class="btn" style="flex:1"><span class="ar">إرسال الطلب</span><span class="en">Submit</span></button>
-              <a href="https://wa.me/966583301731" target="_blank" class="btn ghost" style="flex:1">WhatsApp</a>
+    <div class="hero">
+        <h1>صوت الحق.. ورؤية العدالة</h1>
+        <p>نحن في "بيّنة" نؤمن بأن الحماية القانونية هي حجر الأساس لأي نجاح. نقدم استشاراتنا بخبرة عميقة تحت إشراف المحامي سعيد البدر.</p>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3>نخبة المستشارين</h3>
+                <p>فريق متخصص في الأنظمة السعودية لتقديم حلول شرعية ونظامية دقيقة.</p>
             </div>
-          </form>
-        </aside>
-      </section>
-
-      <section id="approach">
-        <h3 class="section-title"><span class="ar">منهجية إدارة القضايا</span><span class="en">Our Methodology</span></h3>
-        <div class="timeline-container">
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4 class="ar">١. التقييم والتشخيص الدقيق</h4><h4 class="en">1. Assessment & Diagnosis</h4>
-                    <p class="ar">لا نقبل القضايا بعشوائية. نبدأ بدراسة المستندات بعمق، تشخيص الموقف القانوني للعميل، وتحديد نقاط القوة والثغرات المحتملة بشفافية تامة.</p>
-                    <p class="en">We begin by deeply studying documents, diagnosing the client's legal position, and transparently identifying strengths and potential loopholes.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4 class="ar">٢. بناء الاستراتيجية وهندسة الحلول</h4><h4 class="en">2. Strategy & Solution Engineering</h4>
-                    <p class="ar">نصيغ الخطة القانونية الأنسب، سواء كانت ترتكز على التسوية الودية لتقليل الخسائر، أو تجهيز ملف دعوى صلب مدعوم بالسوابق القضائية والأدلة القاطعة.</p>
-                    <p class="en">We draft the most appropriate legal plan, whether based on amicable settlement or preparing a solid lawsuit file supported by precedents.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4 class="ar">٣. المرافعة والتمثيل الحازم</h4><h4 class="en">3. Firm Representation</h4>
-                    <p class="ar">تنفيذ الخطة بصرامة أمام المحاكم والهيئات شبه القضائية، من خلال تقديم مذكرات رصينة ودفوع موضوعية تفند ادعاءات الخصوم وتثبت حق الموكل.</p>
-                    <p class="en">Strict execution before courts and quasi-judicial bodies, presenting robust memos and objective defenses to prove the client's rights.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4 class="ar">٤. الحسم والتنفيذ الفعلي</h4><h4 class="en">4. Resolution & Execution</h4>
-                    <p class="ar">مهمتنا لا تنتهي بصدور الحكم. نتابع إجراءات محاكم التنفيذ لضمان تطبيق الأحكام على أرض الواقع واسترداد الحقوق المادية والمعنوية كاملة.</p>
-                    <p class="en">Our mission doesn't end with a verdict. We follow up with enforcement courts to ensure actual application and full recovery of rights.</p>
-                </div>
+            <div class="feature-card">
+                <h3>سرعة الإنجاز</h3>
+                <p>ندرك قيمة الوقت في القضايا، ونعمل بجداول زمنية واضحة ومتابعة مستمرة.</p>
             </div>
-        </div>
-      </section>
-
-      <section id="cases">
-        <h3 class="section-title"><span class="ar">دراسات حالة نوعية</span><span class="en">Featured Case Studies</span></h3>
-        <div class="case-grid">
-            
-            <div class="case-card">
-                <span class="case-tag ar">قضايا الشركات والإفلاس</span><span class="case-tag en">Corporate & Bankruptcy</span>
-                <h4 class="case-title ar">إنقاذ كيان تجاري من التصفية</h4><h4 class="case-title en">Rescuing an Entity from Liquidation</h4>
-                <div class="case-section">
-                    <strong class="ar">التحدي:</strong><strong class="en">The Challenge:</strong>
-                    <p class="ar">شركة مقاولات واجهت مطالبات مالية تتجاوز 50 مليون ريال، مع صدور أوامر تنفيذ تهدد بتصفية أصولها بالكامل وإيقاف خدماتها.</p>
-                    <p class="en">A contracting company faced financial claims exceeding 50M SAR, with enforcement orders threatening asset liquidation.</p>
-                </div>
-                <div class="case-section">
-                    <strong class="ar">الاستراتيجية:</strong><strong class="en">The Strategy:</strong>
-                    <p class="ar">تدخلنا العاجل لافتتاح إجراءات (إعادة التنظيم المالي) وفق نظام الإفلاس، وإعداد خطة جدولة ديون مدعومة بضمانات مستقبلية.</p>
-                    <p class="en">Urgent intervention to initiate Financial Restructuring under the Bankruptcy Law, preparing a debt scheduling plan.</p>
-                </div>
-                <div class="case-result">
-                    <p class="ar">النتيجة: تعليق المطالبات، اعتماد الخطة من المحكمة، وعودة الشركة لممارسة نشاطها التجاري بنجاح.</p>
-                    <p class="en">Result: Claims suspended, plan approved by the court, and successful resumption of business operations.</p>
-                </div>
+            <div class="feature-card">
+                <h3>التحول الرقمي</h3>
+                <p>نستخدم أحدث تقنيات الذكاء الاصطناعي لتوفير إرشادات قانونية فورية لعملائنا.</p>
             </div>
-
-            <div class="case-card">
-                <span class="case-tag ar">التحكيم الدولي</span><span class="case-tag en">International Arbitration</span>
-                <h4 class="case-title ar">بطلان حكم تحكيم أجنبي مجحف</h4><h4 class="case-title en">Nullification of Foreign Award</h4>
-                <div class="case-section">
-                    <strong class="ar">التحدي:</strong><strong class="en">The Challenge:</strong>
-                    <p class="ar">محاولة خصم أجنبي تنفيذ حكم تحكيم صادر من خارج المملكة ضد موكلنا، يلزمه بدفع تعويضات ضخمة استناداً لعقد غير مكتمل.</p>
-                    <p class="en">A foreign adversary attempted to enforce an external arbitral award requiring massive compensation based on an incomplete contract.</p>
-                </div>
-                <div class="case-section">
-                    <strong class="ar">الاستراتيجية:</strong><strong class="en">The Strategy:</strong>
-                    <p class="ar">الطعن في الحكم أمام محكمة الاستئناف بالمملكة، لإثبات مخالفته للنظام العام السعودي، ووجود قصور جوهري في تسبيب هيئة التحكيم.</p>
-                    <p class="en">Appealing before the domestic Court of Appeal to prove violation of Saudi public policy and defective reasoning.</p>
-                </div>
-                <div class="case-result">
-                    <p class="ar">النتيجة: صدور حكم قطعي برفض تنفيذ حكم التحكيم الأجنبي، وحماية الذمة المالية للموكل بالكامل.</p>
-                    <p class="en">Result: Final judgment refusing enforcement of the foreign award, fully protecting the client's financial liability.</p>
-                </div>
-            </div>
-
-        </div>
-      </section>
-
-      <section id="location">
-        <h3 class="section-title"><span class="ar">المقر وأوقات العمل</span><span class="en">Location & Working Hours</span></h3>
-        <div class="loc-grid">
-            <div class="loc-details">
-                <h4 style="color:var(--primary); font-size:18px;"><span class="ar">أوقات الدوام الرسمي</span><span class="en">Working Hours</span></h4>
-                <ul>
-                    <li><strong class="ar">الأحد - الخميس:</strong><strong class="en">Sun - Thu:</strong><span class="ar">8:00 ص - 5:00 م</span><span class="en">8:00 AM - 5:00 PM</span></li>
-                    <li><strong class="ar">الجمعة - السبت:</strong><strong class="en">Fri - Sat:</strong><span class="ar" style="color:var(--accent)">مغلق (للاستشارات الطارئة فقط)</span><span class="en" style="color:var(--accent)">Closed (Emergencies Only)</span></li>
-                </ul>
-                <h4 style="color:var(--primary); margin-top: 24px; font-size:18px;"><span class="ar">عنوان الكيان</span><span class="en">Office Address</span></h4>
-                <p class="muted ar" style="margin-top:8px; line-height:1.8">مركز الملك عبدالله المالي (KAFD)،<br>الرياض، المملكة العربية السعودية.</p>
-                <p class="muted en" style="margin-top:8px; line-height:1.8">King Abdullah Financial District (KAFD),<br>Riyadh, Saudi Arabia.</p>
-            </div>
-            
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.253303681464!2d46.6372091!3d24.7865624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee32644266ba7%3A0xc3fecbce7ecf97be!2sKing%20Abdullah%20Financial%20District%20(KAFD)!5e0!3m2!1sen!2ssa!4v1700000000000!5m2!1sen!2ssa" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div>
-        <strong style="font-size: 18px;"><span class="ar">بيّنة للمحاماة</span><span class="en">Bayyinah Law Firm</span></strong>
-        <div class="muted" style="margin-top: 4px;"><span class="ar">الرياض، المملكة العربية السعودية</span><span class="en">Riyadh, Saudi Arabia</span></div>
-      </div>
-      <div style="text-align: right;">
-        <div class="muted"><span class="ar">© 2026 جميع الحقوق محفوظة</span><span class="en">© 2026 All Rights Reserved</span></div>
-        <div style="font-size: 13px; margin-top: 4px; color: var(--accent);"><span class="ar">بإشراف المحامي: سعيد البدر</span><span class="en">Directed by: Atty. Saeed Al-Badr</span></div>
-      </div>
-    </footer>
-  </div>
-
-  <div class="chatbot-widget">
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            <h4>🤖 <span class="ar">المساعد الذكي (بيّنة)</span><span class="en">Bayyinah AI Assistant</span></h4>
-            <button class="close-chat" onclick="toggleChat()">×</button>
-        </div>
-        <div class="chat-body" id="chatBody">
-            <div class="chat-msg msg-bot">
-                <span class="ar">أهلاً بك في بيّنة للمحاماة. أنا المساعد الذكي، كيف يمكنني مساعدتك في تصنيف وقيد تفاصيل قضيتك المبدئية اليوم؟ (اكتب تفاصيل قضيتك باختصار)</span>
-                <span class="en">Welcome to Bayyinah Law Firm. I am the AI Assistant. Please briefly describe your case details.</span>
-            </div>
-        </div>
-        <div class="chat-input-area">
-            <input type="text" id="chatInput" class="chat-input" placeholder="اكتب هنا... / Type here..." onkeypress="handleEnter(event)">
-            <button class="chat-send" onclick="processChat()">➤</button>
         </div>
     </div>
-    
-    <div class="chat-btn" onclick="toggleChat()" title="المساعد الذكي">🤖</div>
-  </div>
 
-  <form id="hiddenChatForm" action="https://formsubmit.co/sasopw@gmail.com" method="POST" style="display:none;">
-      <input type="hidden" name="_subject" value="ملف قضية جديد من المساعد الذكي 🤖">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://bayyinahlaw.github.io/Law_/">
-      <input type="hidden" name="تفاصيل_القضية" id="botCaseDetails">
-      <input type="hidden" name="اسم_العميل" id="botUserName">
-      <input type="hidden" name="رقم_التواصل" id="botUserContact">
-  </form>
+    <footer>
+        &copy; 2026 جميع الحقوق محفوظة لمكتب بيّنة للمحاماة | الرياض - مركز الملك عبدالله المالي KAFD
+    </footer>
 
-  <script>
-    // ----------------------------------------------------
-    // نظام تبديل اللغة والثيم
-    // ----------------------------------------------------
-    function toggleLanguage() {
-        const htmlTag = document.documentElement;
-        const btn = document.getElementById('langToggle');
-        if (htmlTag.lang === 'ar') {
-            htmlTag.lang = 'en'; htmlTag.dir = 'ltr'; btn.textContent = 'العربية';
-        } else {
-            htmlTag.lang = 'ar'; htmlTag.dir = 'rtl'; btn.textContent = 'English';
-        }
-    }
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="YmK3dzFjswGXR6jKdraBI";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 
-    function toggleTheme() {
-        const htmlTag = document.documentElement;
-        const btn = document.getElementById('themeToggle');
-        htmlTag.classList.toggle('dark');
-        if (htmlTag.classList.contains('dark')) {
-            btn.textContent = '☀️'; btn.setAttribute('title', 'الوضع النهاري');
-        } else {
-            btn.textContent = '🌙'; btn.setAttribute('title', 'الوضع الليلي');
-        }
-    }
-
-    // ----------------------------------------------------
-    // نظام المساعد الذكي (Chatbot Logic)
-    // ----------------------------------------------------
-    let chatStep = 0;
-    const chatWindow = document.getElementById('chatWindow');
-    const chatBody = document.getElementById('chatBody');
-    const chatInput = document.getElementById('chatInput');
-
-    function toggleChat() {
-        chatWindow.classList.toggle('active');
-        if(chatWindow.classList.contains('active')) {
-            chatInput.focus();
-        }
-    }
-
-    function handleEnter(e) {
-        if (e.key === 'Enter') {
-            processChat();
-        }
-    }
-
-    function appendMessage(text, sender) {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `chat-msg ${sender === 'user' ? 'msg-user' : 'msg-bot'}`;
-        msgDiv.textContent = text;
-        chatBody.appendChild(msgDiv);
-        chatBody.scrollTop = chatBody.scrollHeight; // النزول لأسفل المحادثة تلقائياً
-    }
-
-    function processChat() {
-        const text = chatInput.value.trim();
-        if (!text) return;
-        
-        // عرض رسالة العميل
-        appendMessage(text, 'user');
-        chatInput.value = '';
-        
-        const isAr = document.documentElement.lang === 'ar';
-
-        // محاكاة تفكير البوت (تأخير بسيط)
-        setTimeout(() => {
-            if (chatStep === 0) {
-                // حفظ تفاصيل القضية
-                document.getElementById('botCaseDetails').value = text;
-                appendMessage(isAr ? "تم تحليل معطيات القضية مبدئياً. يرجى التكرم بكتابة اسمك الثلاثي لفتح ملف المراجعة:" : "Case data analyzed. Please enter your full name to open the file:", 'bot');
-                chatStep++;
-            } 
-            else if (chatStep === 1) {
-                // حفظ الاسم
-                document.getElementById('botUserName').value = text;
-                appendMessage(isAr ? `شكراً لك أستاذ ${text}. أخيراً، يرجى كتابة رقم جوالك للبدء في توجيه الملف للمحامي سعيد البدر:` : `Thank you, ${text}. Finally, please enter your phone number to forward the file to Atty. Saeed Al-Badr:`, 'bot');
-                chatStep++;
-            }
-            else if (chatStep === 2) {
-                // حفظ رقم التواصل وإرسال الفورم
-                document.getElementById('botUserContact').value = text;
-                appendMessage(isAr ? "✅ تمت العملية بنجاح. تم تشفير بياناتك وإرسالها شخصياً للمحامي سعيد البدر. سيتم التواصل معك قريباً بالاستشارة القانونية المعتمدة." : "✅ Process completed. Your data has been securely forwarded to Atty. Saeed Al-Badr. We will contact you soon.", 'bot');
-                chatStep++;
-                
-                // إرسال البيانات للإيميل بعد 2 ثانية
-                setTimeout(() => {
-                    document.getElementById('hiddenChatForm').submit();
-                }, 2000);
-            }
-        }, 600); // تأخير 600 جزء من الثانية ليعطي طابع واقعي أن الذكاء يكتب
-    }
-  </script>
 </body>
 </html>
-
 
